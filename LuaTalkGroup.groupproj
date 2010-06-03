@@ -1,0 +1,44 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{786ed3bd-f49b-468d-a275-ada81144fbc7}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="SliderGui.dproj" />
+    <Projects Include="UDPReceiver.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+  <BorlandProject xmlns=""> <Default.Personality> </Default.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="UDPReceiver">
+    <MSBuild Projects="UDPReceiver.dproj" Targets="" />
+  </Target>
+  <Target Name="UDPReceiver:Clean">
+    <MSBuild Projects="UDPReceiver.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="UDPReceiver:Make">
+    <MSBuild Projects="UDPReceiver.dproj" Targets="Make" />
+  </Target>
+  <Target Name="SliderGui">
+    <MSBuild Projects="SliderGui.dproj" Targets="" />
+  </Target>
+  <Target Name="SliderGui:Clean">
+    <MSBuild Projects="SliderGui.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="SliderGui:Make">
+    <MSBuild Projects="SliderGui.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="UDPReceiver;SliderGui" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="UDPReceiver:Clean;SliderGui:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="UDPReceiver:Make;SliderGui:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

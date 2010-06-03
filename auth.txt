@@ -1,0 +1,3 @@
+http://svn.oasisdigital.com/luademo/trunk
+kyle
+blahpaswd
